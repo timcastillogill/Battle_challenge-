@@ -24,7 +24,7 @@ class Battle < Sinatra::Base
     @player_2 = session[:player_2]
     erb :play
 
-    if #attack_player_2(click_button) 
+    if #{attack_player_2}(click_button) 
       @HP_P1 -= 10
     end
 
