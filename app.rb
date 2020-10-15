@@ -4,6 +4,11 @@ class Battle < Sinatra::Base
 
   enable :sessions
 
+  def initialize
+    @HP_P1 = 100
+    @HP_P2 = 100
+  end
+
   get '/' do
     erb :index
   end
@@ -18,6 +23,14 @@ class Battle < Sinatra::Base
     @player_1 = session[:player_1]
     @player_2 = session[:player_2]
     erb :play
+
+    if #attack_player_2(click_button) 
+      @HP_P1 -= 10
+    end
+
+    if #attack_player_2(click_button) 
+      @HP_P2 -= 10
+    end
   end
 
 
