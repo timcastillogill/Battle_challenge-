@@ -6,7 +6,7 @@ feature 'Names form' do
     fill_in("Player 1", with: 'Tim')
     fill_in("Player 2", with: 'Cam')
     click_button('Submit')
-    expect(page).to have_content('Tim' && 'Cam')
+    expect(page).to have_content('Tim')
   end
 end
 
