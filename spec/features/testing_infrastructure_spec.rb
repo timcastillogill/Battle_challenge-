@@ -1,9 +1,12 @@
 # require 'app.rb'
 
-feature 'Testing infastructure' do
-  scenario 'Can run app and check page content' do
+feature 'Names form' do
+  scenario 'can take in two player names from a form and post them to /names' do
     visit('/')
-      expect(page).to have_content 'Testing infrastructure working!'
+    fill_in("Player 1", with: 'Tim')
+    fill_in("Player 2", with: 'Cam')
+    click_button('Submit')
+    expect(page).to have_content('Tim' && 'Cam')
   end
 end
 
