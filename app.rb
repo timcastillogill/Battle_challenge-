@@ -9,13 +9,17 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
-    "Player 1 = " << session['Player 1'].inspect
-    "Player 2 = " << session['Player 2'].inspect
+    # "player_1 = " << session[:player_1].inspect
+    # "player_2 = " << session[:player_2].inspect
+    session[:player_1] = params[:player_1]
+    session[:player_2] = params[:player_2]
+    redirect to('/play')
   end
 
   get '/play' do
-    session['Player 1'] = params['Player 1']
-    session['Player 2'] = params['Player 2']
+
+    @player_1 = session[:player_1]
+    @player_2 = session[:player_2]
     erb :play
   end
 
