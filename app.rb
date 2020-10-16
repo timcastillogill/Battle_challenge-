@@ -33,7 +33,7 @@ class Battle < Sinatra::Base
   end
 
   post '/attack' do
-    $game.attack($player1, $player_2)
+    $game.attack($player_1, $player_2)
     redirect '/play'
   end
 
