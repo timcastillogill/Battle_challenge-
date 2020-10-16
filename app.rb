@@ -1,8 +1,10 @@
 require 'sinatra/base'
+require './attack'
 
 class Battle < Sinatra::Base
 
   enable :sessions
+  set :session_secret, 'super secret'
 
   # def initialize
   #   @HP_P1 = 100
@@ -27,14 +29,11 @@ class Battle < Sinatra::Base
     @player_1 = session[:player_1]
     @player_2 = session[:player_2]
     erb :play
+  end
 
-  #   if #{attack_player_2}(click_button) 
-  #     @HP_P1 -= 10
-  #   end
-
-  #   if #attack_player_2(click_button) 
-  #     @HP_P2 -= 10
-  #   end
+  post '/attack' do
+    session[:hp_p2] = attack(session[:hp_p2])
+    redirect '/play'
   end
 
 
