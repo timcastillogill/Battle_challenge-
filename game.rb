@@ -7,8 +7,9 @@ class Game
   end
 
   def attack(perp, victim)
+
     victim.take_damage
-    @log << "#{perp} attacked #{victim}!"
+    @log << "#{perp.name} attacked #{victim.name}!"
   end
 
   def log
