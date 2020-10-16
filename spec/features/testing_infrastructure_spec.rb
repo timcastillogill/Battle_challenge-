@@ -6,6 +6,7 @@ feature 'Names form' do
     expect(page).to have_content('Tim' && 'Cam')
   end
 end
+
 feature 'view hitpoints' do
   scenario 'you can see the hitpoints that each player still has' do
     sign_in_and_play
@@ -16,7 +17,7 @@ end
 feature 'displays when player is hit' do 
   scenario 'Player 2 HP number reduced by 10' do
     sign_in_and_play
-    click_button('attack_player_2')
+    click_on('attack_player_2')
     expect(page).to have_content( 100 && 90 )
   end
 end

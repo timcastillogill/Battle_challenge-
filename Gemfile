@@ -7,4 +7,5 @@ group :test, :development do
   gem 'shotgun', '~> 0.9.2'
   gem 'capybara', '~> 3.33'
   gem 'launchy', '~> 2.5'
+  gem 'rack'
 end
