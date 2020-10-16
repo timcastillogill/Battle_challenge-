@@ -14,11 +14,15 @@ feature 'view hitpoints' do
   end
 end
 
-feature 'displays when player is hit' do 
+feature 'displays when player is hit' do
   scenario 'Player 2 HP number reduced by 10' do
     sign_in_and_play
     click_on('attack_player_2')
     expect(page).to have_content( 100 && 90 )
   end
+  scenario "displays brief description" do
+    sign_in_and_play
+    click_on('attack_player_2')
+    expect(page).to have_content("Tim attacked Cam!")
+  end
 end
-

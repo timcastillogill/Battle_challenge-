@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './attack'
+require './log'
 
 class Battle < Sinatra::Base
 
@@ -28,11 +29,13 @@ class Battle < Sinatra::Base
     @hp_p2 = session[:hp_p2]
     @player_1 = session[:player_1]
     @player_2 = session[:player_2]
+    @battle_log = session[:log]
     erb :play
   end
 
   post '/attack' do
     session[:hp_p2] = attack(session[:hp_p2])
+    session[:log] = log(session[:player_1], session[:player_2])
     redirect '/play'
   end
 
