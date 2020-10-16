@@ -10,4 +10,9 @@ describe Player do
   it 'will return their hp' do
     expect(subject.hp).to eq 100
   end
+
+  it 'can take damage' do
+    subject.take_damage
+    expect(subject.hp).to eq(90)
+  end
 end
